@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次創作サークルはるつむぎ</title>
+<meta name="description" content="二次創作サークル はるつむぎ の公式サイト。イベント参加予定・頒布物・お知らせ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --washi:#FBF7F3;      /* 生成りの紙 */
+    --washi-2:#F4ECE6;    /* 少し沈めた地 */
+    --ink:#423A47;        /* 墨に藤を混ぜた文字色 */
+    --ink-soft:#6E6472;
+    --fuji:#8C7AB0;       /* 藤色（主役） */
+    --fuji-deep:#6E5C93;
+    --sakura:#E39FB6;     /* 桜 */
+    --wakaba:#9BB58A;     /* 若葉 */
+    --thread:#DFCEC2;     /* 糸・麻の線 */
+    --gold:#C6A96B;       /* 金の差し色 */
+    --white:#FFFFFF;
+    --shadow:0 12px 40px -18px rgba(78,60,80,.45);
+    --radius:18px;
+    --maxw:1080px;
+    --serif:"Shippori Mincho",serif;
+    --sans:"Zen Kaku Gothic New",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;font-family:var(--sans);color:var(--ink);
+    background:var(--washi);line-height:1.85;
+    -webkit-font-smoothing:antialiased;letter-spacing:.02em;
+  }
+  a{color:var(--fuji-deep);text-underline-offset:3px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:.04em;line-height:1.4}
+  :focus-visible{outline:3px solid var(--fuji);outline-offset:3px;border-radius:6px}
+  img{max-width:100%;display:block}
+
+  /* ---------- 糸のディバイダ ---------- */
+  .thread-rule{
+    display:flex;align-items:center;gap:14px;color:var(--thread);
+    max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  }
+  .thread-rule::before,.thread-rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--thread),transparent)}
+  .thread-rule .knot{width:8px;height:8px;border-radius:50%;background:var(--sakura);box-shadow:0 0 0 4px rgba(227,159,182,.18)}
+
+  /* ---------- レイアウト ---------- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:74px 0}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--fuji);font-weight:700;margin:0 0 10px
+  }
+  .sec-head{margin-bottom:34px}
+  .sec-head h2{font-size:1.9rem;margin:0}
+  .sec-head p{margin:8px 0 0;color:var(--ink-soft);font-size:.95rem}
+
+  /* ---------- ヘッダー / ナビ ---------- */
+  header.hero{position:relative;overflow:hidden;background:
+    radial-gradient(120% 90% at 82% -10%, rgba(227,159,182,.28), transparent 60%),
+    radial-gradient(120% 100% at 8% 0%, rgba(140,122,176,.24), transparent 55%),
+    linear-gradient(180deg,#FCF8F5, var(--washi))}
+  .hero-thread{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.9}
+  .hero-thread path{fill:none;stroke-width:1.4;stroke-linecap:round;
+    stroke-dasharray:1400;stroke-dashoffset:1400;
+    animation:weave 2.6s ease forwards}
+  .hero-thread path:nth-child(2){animation-delay:.25s}
+  .hero-thread path:nth-child(3){animation-delay:.5s}
+  @keyframes weave{to{stroke-dashoffset:0}}
+  @media (prefers-reduced-motion:reduce){.hero-thread path{animation:none;stroke-dashoffset:0}}
+
+  nav{position:relative;z-index:3;max-width:var(--maxw);margin:0 auto;
+    padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  nav .mark{font-family:var(--serif);font-weight:700;font-size:1.15rem;letter-spacing:.14em;color:var(--ink)}
+  nav .mark small{display:block;font-family:var(--sans);font-weight:500;font-size:.62rem;letter-spacing:.42em;color:var(--fuji);margin-top:2px}
+  nav ul{list-style:none;display:flex;gap:8px;margin:0;padding:0;flex-wrap:wrap}
+  nav ul a{display:inline-block;padding:8px 14px;border-radius:999px;color:var(--ink-soft);
+    text-decoration:none;font-size:.86rem;font-weight:500;transition:.18s}
+  nav ul a:hover{background:rgba(140,122,176,.12);color:var(--fuji-deep)}
+
+  .hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;
+    padding:56px 24px 96px;text-align:center}
+  .hero-inner .seal{display:inline-block;font-size:.7rem;letter-spacing:.4em;color:var(--fuji);
+    border:1px solid var(--thread);border-radius:999px;padding:7px 18px;margin-bottom:26px;background:rgba(255,255,255,.5)}
+  .hero-inner h1{font-size:clamp(2.9rem,9vw,5.2rem);margin:0;letter-spacing:.12em;font-weight:700;color:var(--ink)}
+  .hero-inner .subtitle{font-family:var(--serif);font-size:clamp(.95rem,2.5vw,1.15rem);
+    letter-spacing:.5em;color:var(--fuji-deep);margin:18px 0 0}
+  .hero-inner .lead{max-width:32em;margin:26px auto 0;color:var(--ink-soft);font-size:1rem}
+  .hero-cta{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- ボタン ---------- */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;
+    font-family:var(--sans);font-weight:700;font-size:.9rem;cursor:pointer;border:1px solid transparent;
+    text-decoration:none;transition:.18s;line-height:1}
+  .btn-primary{background:var(--fuji);color:#fff;box-shadow:0 10px 24px -12px rgba(110,92,147,.9)}
+  .btn-primary:hover{background:var(--fuji-deep);transform:translateY(-1px)}
+  .btn-ghost{background:rgba(255,255,255,.7);color:var(--fuji-deep);border-color:var(--thread)}
+  .btn-ghost:hover{border-color:var(--fuji);color:var(--fuji-deep)}
+  .btn-mini{padding:7px 12px;font-size:.78rem;border-radius:10px}
+
+  /* ---------- イベント ---------- */
+  .event-featured{background:var(--white);border:1px solid var(--thread);border-radius:var(--radius);
+    padding:30px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+  .event-featured::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;
+    background:linear-gradient(var(--fuji),var(--sakura))}
+  .date-chip{text-align:center;min-width:96px;padding:14px 10px;border-radius:14px;
+    background:linear-gradient(160deg,#fff,#F5EFF6);border:1px solid var(--thread)}
+  .date-chip .m{font-family:var(--serif);font-size:.8rem;color:var(--fuji);letter-spacing:.1em}
+  .date-chip .d{font-family:var(--serif);font-size:2.6rem;font-weight:700;line-height:1;color:var(--ink)}
+  .date-chip .w{font-size:.72rem;color:var(--ink-soft);margin-top:4px}
+  .date-chip.tbd .d{font-size:1.2rem;padding:12px 0}
+  .event-featured .badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+    color:#fff;background:var(--wakaba);border-radius:999px;padding:4px 12px;margin-bottom:8px}
+  .event-featured h3{font-size:1.4rem;margin:0 0 6px}
+  .event-meta{color:var(--ink-soft);font-size:.9rem;margin:2px 0}
+  .event-meta b{color:var(--ink);font-weight:700}
+  .event-note{margin-top:10px;font-size:.9rem;color:var(--fuji-deep)}
+
+  .event-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:20px}
+  .event-card{background:var(--white);border:1px solid var(--thread);border-radius:14px;padding:18px 18px 16px;position:relative}
+  .event-card .row{display:flex;align-items:baseline;gap:10px}
+  .event-card .cdate{font-family:var(--serif);font-weight:700;color:var(--fuji-deep);font-size:1.05rem;white-space:nowrap}
+  .event-card h4{margin:2px 0 6px;font-family:var(--serif);font-size:1.05rem;font-weight:600}
+  .event-card .m{font-size:.82rem;color:var(--ink-soft);margin:1px 0}
+
+  .past-head{display:flex;align-items:center;gap:12px;margin:44px 0 14px;color:var(--ink-soft)}
+  .past-head .line{flex:1;height:1px;background:var(--thread)}
+  .past-head span{font-family:var(--serif);font-size:.95rem;letter-spacing:.1em}
+  .past-list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .past-list li{display:grid;grid-template-columns:112px 1fr auto;gap:14px;align-items:center;
+    padding:12px 14px;border-radius:10px}
+  .past-list li:nth-child(odd){background:rgba(244,236,230,.6)}
+  .past-list .pd{font-family:var(--serif);color:var(--ink-soft);font-size:.86rem}
+  .past-list .pn{font-weight:500}
+  .past-list .pp{color:var(--ink-soft);font-size:.82rem}
+
+  /* ---------- 頒布物 ---------- */
+  .works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px}
+  .work{background:var(--white);border:1px solid var(--thread);border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 14px 34px -22px rgba(78,60,80,.5);transition:.2s;position:relative}
+  .work:hover{transform:translateY(-3px);box-shadow:0 22px 44px -22px rgba(78,60,80,.55)}
+  .work .cover{aspect-ratio:3/4;background:var(--washi-2);position:relative;overflow:hidden}
+  .work .cover img{width:100%;height:100%;object-fit:cover}
+  .work .cover-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(150deg,#EFE6EE,#E7EEE2)}
+  .work .cover-ph span{font-family:var(--serif);font-size:3.4rem;color:var(--fuji);opacity:.65}
+  .work .body{padding:20px}
+  .work h3{font-size:1.2rem;margin:0 0 10px}
+  .work .summary{font-size:.9rem;color:var(--ink-soft);line-height:1.9;white-space:pre-wrap}
+
+  /* ---------- お知らせ ---------- */
+  .news-list{list-style:none;margin:0;padding:0;max-width:760px}
+  .news-item{display:grid;grid-template-columns:132px 1fr;gap:20px;padding:20px 0;border-bottom:1px dashed var(--thread)}
+  .news-item time{font-family:var(--serif);color:var(--fuji-deep);font-size:.92rem;padding-top:2px}
+  .news-item .txt{white-space:pre-wrap}
+  .news-item .ctrls{grid-column:1/-1}
+
+  /* ---------- X / SNS ---------- */
+  .social-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:start}
+  .x-embed{background:var(--white);border:1px solid var(--thread);border-radius:var(--radius);
+    padding:16px;box-shadow:var(--shadow);min-height:200px}
+  .x-fallback{padding:26px;text-align:center}
+  .x-fallback p{color:var(--ink-soft);font-size:.9rem;margin:0 0 16px}
+  .profile-card{background:linear-gradient(165deg,#fff,#F6F0F5);border:1px solid var(--thread);
+    border-radius:var(--radius);padding:30px;text-align:center;box-shadow:var(--shadow)}
+  .avatar{width:104px;height:104px;border-radius:50%;margin:0 auto 16px;overflow:hidden;
+    border:3px solid #fff;box-shadow:0 8px 22px -10px rgba(78,60,80,.6);background:var(--washi-2)}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .avatar .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(150deg,#E7DCEA,#DCE7DA)}
+  .avatar .ph svg{width:56px;height:56px;fill:var(--fuji);opacity:.6}
+  .profile-card h3{margin:0 0 2px;font-size:1.3rem}
+  .profile-card .handle{color:var(--fuji);font-size:.9rem;font-weight:500}
+  .profile-card .bio{color:var(--ink-soft);font-size:.88rem;margin:12px 0 20px}
+  .official-x{margin-top:14px;font-size:.82rem;color:var(--ink-soft)}
+
+  /* ---------- フッター ---------- */
+  footer{background:linear-gradient(180deg,var(--washi),#F2E9E3);padding:56px 0 40px;margin-top:40px;text-align:center}
+  footer .fmark{font-family:var(--serif);font-size:1.3rem;letter-spacing:.14em;color:var(--ink)}
+  footer .fsub{color:var(--fuji);font-size:.66rem;letter-spacing:.4em;margin-top:6px}
+  footer .fcopy{color:var(--ink-soft);font-size:.76rem;margin-top:22px}
+
+  /* ---------- 編集モード ---------- */
+  .edit-only{display:none}
+  body.is-editing .edit-only{display:inline-flex}
+  body.is-editing .news-item .ctrls.edit-only{display:flex}
+  body.is-editing [data-editzone]{outline:1.5px dashed rgba(140,122,176,.4);outline-offset:8px;border-radius:12px}
+  .item-ctrls{gap:6px;margin-top:12px}
+  .item-ctrls.edit-only{display:none}
+  body.is-editing .item-ctrls.edit-only{display:flex}
+  .icon-btn{border:1px solid var(--thread);background:#fff;color:var(--ink-soft);border-radius:9px;
+    padding:5px 10px;font-size:.76rem;font-weight:700;cursor:pointer;font-family:var(--sans)}
+  .icon-btn:hover{border-color:var(--fuji);color:var(--fuji-deep)}
+  .icon-btn.danger:hover{border-color:var(--sakura);color:#c25e7d}
+  .add-btn{display:none;margin-top:22px}
+  body.is-editing .add-btn{display:inline-flex}
+
+  .fab{position:fixed;right:20px;bottom:20px;z-index:50;display:none;flex-direction:column;gap:10px;align-items:flex-end}
+  body.is-editing .fab{display:flex}
+  .fab button{border:none;cursor:pointer;font-family:var(--sans);font-weight:700}
+  .fab-action{display:inline-flex;background:#fff;color:var(--fuji-deep);border:1px solid var(--thread)!important;border-radius:999px;
+    padding:10px 16px;font-size:.8rem;box-shadow:0 10px 24px -14px rgba(66,58,71,.7);align-items:center;gap:7px}
+  .fab-action:hover{border-color:var(--fuji)!important;color:var(--fuji-deep)}
+  .fab-action.reset{color:#b06a86}
+  .fab-action.reset:hover{border-color:var(--sakura)!important}
+  .fab-action.end{background:var(--wakaba);color:#fff;border-color:var(--wakaba)!important}
+  .fab-action.end:hover{background:#88a578;border-color:#88a578!important;color:#fff}
+
+  /* ---------- ハンバーガーメニュー ---------- */
+  .hamburger{position:fixed;top:16px;right:16px;z-index:70;width:46px;height:46px;border-radius:13px;
+    background:rgba(255,255,255,.82);border:1px solid var(--thread);backdrop-filter:blur(6px);cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:var(--shadow)}
+  .hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .menu-scrim{position:fixed;inset:0;background:rgba(66,58,71,.28);z-index:65;opacity:0;pointer-events:none;transition:.25s}
+  .menu-scrim.open{opacity:1;pointer-events:auto}
+  .menu-panel{position:fixed;top:72px;right:16px;z-index:70;width:min(290px,calc(100vw - 32px));
+    background:var(--washi);border:1px solid var(--thread);border-radius:16px;padding:8px;
+    box-shadow:0 30px 60px -24px rgba(66,58,71,.6);transform-origin:top right;
+    transform:translateY(-8px) scale(.98);opacity:0;pointer-events:none;transition:.2s}
+  .menu-panel.open{transform:none;opacity:1;pointer-events:auto}
+  .menu-item{display:block;width:100%;text-align:left;background:none;border:none;font-family:var(--sans);
+    font-size:.95rem;font-weight:500;color:var(--ink);padding:13px 14px;border-radius:10px;cursor:pointer}
+  .menu-item:hover{background:rgba(140,122,176,.1);color:var(--fuji-deep)}
+  .menu-blank{height:46px;position:relative;overflow:hidden;padding:0;cursor:default;
+    -webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  .menu-blank:hover{background:none}
+  .menu-blank .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(140,122,176,.14)}
+  .menu-blank.pressing .fill{width:100%;transition:width 10s linear}
+  .fab .toggle{background:var(--ink);color:#fff;border-radius:999px;padding:12px 18px;font-size:.82rem;
+    box-shadow:0 12px 30px -12px rgba(66,58,71,.9);display:flex;align-items:center;gap:8px}
+  .fab .toggle:hover{background:var(--fuji-deep)}
+  body.is-editing .fab .toggle{background:var(--wakaba)}
+
+  /* ---------- モーダル ---------- */
+  .modal-back{position:fixed;inset:0;background:rgba(66,58,71,.42);backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+  .modal-back.open{display:flex}
+  .modal{background:var(--washi);border-radius:20px;max-width:520px;width:100%;max-height:88vh;overflow:auto;
+    box-shadow:0 40px 80px -30px rgba(66,58,71,.7);padding:30px}
+  .modal h3{margin:0 0 4px;font-size:1.3rem}
+  .modal .hint{color:var(--ink-soft);font-size:.82rem;margin:0 0 20px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+  .field input,.field textarea{width:100%;border:1px solid var(--thread);background:#fff;border-radius:12px;
+    padding:11px 13px;font-family:var(--sans);font-size:.92rem;color:var(--ink);resize:vertical}
+  .field textarea{min-height:110px;line-height:1.8}
+  .field .sub{font-size:.74rem;color:var(--ink-soft);margin-top:5px}
+  .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:24px}
+  .thumb-prev{width:74px;height:98px;border-radius:8px;object-fit:cover;border:1px solid var(--thread);margin-top:8px;background:var(--washi-2)}
+
+  /* ---------- レスポンシブ ---------- */
+  @media (max-width:820px){
+    .social-grid{grid-template-columns:1fr}
+    .event-featured{grid-template-columns:1fr;text-align:left}
+    .date-chip{justify-self:start}
+  }
+  @media (max-width:560px){
+    section{padding:56px 0}
+    .past-list li{grid-template-columns:1fr;gap:2px;padding:12px}
+    .past-list .pp{grid-row:auto}
+    .news-item{grid-template-columns:1fr;gap:6px}
+    nav{justify-content:center}
+    .fab .toggle span.lbl{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ヘッダー / ヒーロー ============ -->
+<header class="hero" id="top">
+  <svg class="hero-thread" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-20,140 C220,60 380,240 620,150 C860,60 1000,220 1240,140" stroke="#8C7AB0"/>
+    <path d="M-20,250 C260,190 420,330 640,250 C880,170 1040,320 1240,250" stroke="#E39FB6"/>
+    <path d="M-20,370 C240,300 460,430 660,360 C900,290 1060,420 1240,360" stroke="#9BB58A"/>
+  </svg>
+
+  <nav>
+    <div class="mark">はるつむぎ<small>HARUTSUMUGI</small></div>
+    <ul>
+      <li><a href="#events">イベント</a></li>
+      <li><a href="#works">頒布物</a></li>
+      <li><a href="#news">お知らせ</a></li>
+      <li><a href="#social">X</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-inner">
+    <span class="seal">二次創作サークル</span>
+    <h1>はるつむぎ</h1>
+    <p class="lead">言葉をひと針ずつ。二次創作の小説をつくっているサークルです。イベント参加予定や新しい頒布物のお知らせは、このページで。</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#events">参加予定を見る</a>
+      <a class="btn btn-ghost" href="https://x.com/Harutsumugi_cpk" target="_blank" rel="noopener">公式X @Harutsumugi_cpk</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ イベント ============ -->
+<section id="events">
+  <div class="wrap" data-editzone>
+    <div class="sec-head">
+      <p class="eyebrow">Events</p>
+      <h2>イベント参加予定</h2>
+      <p>直近の参加予定と、これまでにお会いした場所。</p>
+    </div>
+    <div id="events-upcoming"></div>
+    <div id="events-past"></div>
+    <button class="btn btn-ghost add-btn" data-add="event">＋ イベントを追加</button>
+  </div>
+</section>
+
+<div class="thread-rule"><span class="knot"></span></div>
+
+<!-- ============ 頒布物 ============ -->
+<section id="works">
+  <div class="wrap" data-editzone>
+    <div class="sec-head">
+      <p class="eyebrow">Works</p>
+      <h2>頒布物</h2>
+      <p>これまでにつむいできた小説たち。</p>
+    </div>
+    <div class="works-grid" id="works-grid"></div>
+    <button class="btn btn-ghost add-btn" data-add="work">＋ 頒布物を追加</button>
+  </div>
+</section>
+
+<div class="thread-rule"><span class="knot"></span></div>
+
+<!-- ============ お知らせ ============ -->
+<section id="news">
+  <div class="wrap" data-editzone>
+    <div class="sec-head">
+      <p class="eyebrow">News</p>
+      <h2>サークルからのお知らせ</h2>
+      <p>新刊・イベント・その他の連絡はこちらに。</p>
+    </div>
+    <ul class="news-list" id="news-list"></ul>
+    <button class="btn btn-ghost add-btn" data-add="news">＋ お知らせを追加</button>
+  </div>
+</section>
+
+<div class="thread-rule"><span class="knot"></span></div>
+
+<!-- ============ X / SNS ============ -->
+<section id="social">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Social</p>
+      <h2>X（旧Twitter）</h2>
+      <p>最新のポストと、書き手のアカウント。</p>
+    </div>
+    <div class="social-grid">
+      <div class="x-embed" id="x-embed">
+        <a class="twitter-timeline" data-height="560" data-theme="light" data-chrome="noheader nofooter transparent"
+           href="https://twitter.com/Harutsumugi_cpk?ref_src=twsrc%5Etfw">Posts by @Harutsumugi_cpk</a>
+        <div class="x-fallback" id="x-fallback" style="display:none">
+          <p>タイムラインを読み込めませんでした。<br>下のボタンからXでご覧ください。</p>
+          <a class="btn btn-primary" href="https://x.com/Harutsumugi_cpk" target="_blank" rel="noopener">@Harutsumugi_cpk を開く</a>
+        </div>
+      </div>
+
+      <div class="profile-card" data-editzone>
+        <div class="avatar" id="pf-avatar"></div>
+        <h3 id="pf-name">はる</h3>
+        <a class="handle" id="pf-handle" href="https://x.com/H4ru_ycy" target="_blank" rel="noopener">@H4ru_ycy</a>
+        <p class="bio" id="pf-bio">はるつむぎ の書き手。二次創作で小説を書いています。</p>
+        <a class="btn btn-primary" id="pf-link" href="https://x.com/H4ru_ycy" target="_blank" rel="noopener">Xでフォロー</a>
+        <div class="item-ctrls edit-only" style="justify-content:center">
+          <button class="icon-btn" data-edit="profile">プロフィールを編集</button>
+        </div>
+        <p class="official-x">サークル公式：<a href="https://x.com/Harutsumugi_cpk" target="_blank" rel="noopener">@Harutsumugi_cpk</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fmark">はるつむぎ</div>
+  <div class="fsub">HARUTSUMUGI</div>
+  <p class="fcopy">© <span id="year"></span> 二次創作サークルはるつむぎ</p>
+</footer>
+
+<!-- ハンバーガーメニュー -->
+<button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<div class="menu-scrim" id="menu-scrim"></div>
+<div class="menu-panel" id="menu-panel" role="menu">
+  <button class="menu-item" data-menu="email" role="menuitem">メールアドレスを登録してお知らせを受け取る</button>
+  <button class="menu-item" data-menu="works" role="menuitem">コンテンツ一覧</button>
+  <button class="menu-item" data-menu="profile" role="menuitem">プロフィール</button>
+  <button class="menu-item" data-menu="contact" role="menuitem">お問い合わせ</button>
+  <button class="menu-item menu-blank" id="secret-item" aria-hidden="true" tabindex="-1"><span class="fill" id="secret-fill"></span></button>
+</div>
+
+<!-- 管理メニュー（空欄の10秒長押しで編集モードに入ったときだけ表示） -->
+<div class="fab" id="fab">
+  <button class="fab-action" id="btn-export">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
+    公開用に書き出し
+  </button>
+  <button class="fab-action" id="btn-settings">設定</button>
+  <button class="fab-action reset" id="btn-reset">この端末の編集をリセット</button>
+  <button class="fab-action end" id="btn-end">編集を終了</button>
+</div>
+
+<!-- モーダル -->
+<div class="modal-back" id="modal-back">
+  <div class="modal" id="modal"></div>
+</div>
+
+<!-- 公開データ（「公開用に書き出し」でここへ自動的に埋め込まれます。手で書き換えないでください） -->
+<script type="application/json" id="site-data">__SITE_DATA__</script>
+
+<script>
+/* ============================================================
+   はるつむぎ 公式サイト  ―  データ管理 & 編集モード
+   ============================================================ */
+
+/* 【編集モードの合言葉】ここを変更してください（クライアント側のみの簡易ロックです） */
+const DEFAULT_PASSCODE = "harutsumugi";
+
+const STORE_KEY = "harutsumugi_site_v1";
+
+/* ---- ストレージ層：localStorage が使えない環境ではメモリに退避 ---- */
+const mem = {};
+const store = {
+  get(k){ try{ return localStorage.getItem(k); }catch(e){ return mem[k] ?? null; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch(e){ mem[k]=v; } }
+};
+
+/* ---- 初期データ（編集・削除できます） ---- */
+const seed = {
+  passcode: DEFAULT_PASSCODE,
+  contactEmail: "",
+  newsletter: "",
+  profile: {
+    name: "はる",
+    handle: "H4ru_ycy",
+    bio: "はるつむぎ の書き手。二次創作で小説を書いています。",
+    avatar: ""
+  },
+  events: [
+    { id:"e1", date:"2026-08-30", name:"コミックマーケット106", place:"東京ビッグサイト", space:"東ラ-01a", note:"新刊を頒布予定です。" },
+    { id:"e2", date:"2026-11-23", name:"文学フリマ東京", place:"東京流通センター", space:"配置未定", note:"" },
+    { id:"e3", date:"2026-05-05", name:"SUPER COMIC CITY", place:"東京ビッグサイト", space:"A-15b", note:"" },
+    { id:"e4", date:"2025-12-30", name:"コミックマーケット105", place:"東京ビッグサイト", space:"西あ-20a", note:"" }
+  ],
+  works: [
+    { id:"w1", title:"夜明けを紡ぐ", cover:"", summary:"すれ違い続けた二人が、ひとつの約束をきっかけに距離を縮めていく。長い夜の果てに交わす、はじめての言葉。" },
+    { id:"w2", title:"春のあわいに", cover:"", summary:"桜が散るころ、彼は小さな嘘をついた。その嘘がほどけるまでの、ゆっくりとした季節の物語。" }
+  ],
+  news: [
+    { id:"n1", date:"2026-08-18", body:"ホームページを開設しました。これからよろしくお願いします。" },
+    { id:"n2", date:"2026-08-10", body:"夏の新刊、制作中です。続報はXでお知らせします。" }
+  ]
+};
+
+/* ---- 書き出し用に、変更前のページ構造を保持しておく ---- */
+const TEMPLATE = document.documentElement.cloneNode(true);
+
+/* ---- ファイルに埋め込まれた公開データを読む ---- */
+function readEmbedded(){
+  const el=document.getElementById("site-data");
+  if(!el) return null;
+  const t=el.textContent.trim();
+  if(t.charAt(0)!=="{") return null;      // 未書き出し（プレースホルダ）は無視
+  try{ return JSON.parse(t); }catch(e){ return null; }
+}
+
+/* ---- 状態（優先順位：この端末の編集 → 公開データ → 初期データ） ---- */
+let state = load();
+function load(){
+  const raw = store.get(STORE_KEY);
+  if(raw){ try{ return JSON.parse(raw); }catch(e){} }
+  const emb = readEmbedded();
+  if(emb) return emb;
+  return structuredClone(seed);
+}
+function save(){ store.set(STORE_KEY, JSON.stringify(state)); }
+const uid = ()=> Math.random().toString(36).slice(2,9);
+const esc = s => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---- 日付ヘルパー ---- */
+const WEEK = ["日","月","火","水","木","金","土"];
+function parseDate(s){ if(!s) return null; const d=new Date(s+"T00:00:00"); return isNaN(d)?null:d; }
+function isUpcoming(ev){
+  const d=parseDate(ev.date);
+  if(!d) return true;               // 日程未定は「予定」扱い
+  const t=new Date(); t.setHours(0,0,0,0);
+  return d>=t;
+}
+function fmtLong(s){
+  const d=parseDate(s); if(!d) return {m:"未定",d:"",w:"",tbd:true};
+  return {m:(d.getMonth()+1)+"月", d:d.getDate(), w:"（"+WEEK[d.getDay()]+"）"};
+}
+function fmtShort(s){
+  const d=parseDate(s); if(!d) return "日程未定";
+  return d.getFullYear()+"."+String(d.getMonth()+1).padStart(2,"0")+"."+String(d.getDate()).padStart(2,"0");
+}
+function fmtNews(s){
+  const d=parseDate(s); if(!d) return esc(s);
+  return d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日";
+}
+
+/* ============================================================
+   描画
+   ============================================================ */
+function render(){ renderEvents(); renderWorks(); renderNews(); renderProfile(); }
+
+function renderEvents(){
+  const up = state.events.filter(isUpcoming).sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"));
+  const past = state.events.filter(e=>!isUpcoming(e)).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const wrapU = document.getElementById("events-upcoming");
+  const wrapP = document.getElementById("events-past");
+
+  let html="";
+  if(up.length){
+    const f=up[0], fd=fmtLong(f.date);
+    html += `<div class="event-featured">
+      <div class="date-chip ${fd.tbd?'tbd':''}">
+        <div class="m">${fd.tbd?'':esc(fd.m)}</div>
+        <div class="d">${fd.tbd?'未定':esc(fd.d)}</div>
+        <div class="w">${esc(fd.w||'')}</div>
+      </div>
+      <div>
+        <span class="badge">次回参加</span>
+        <h3>${esc(f.name)}</h3>
+        <p class="event-meta"><b>会場</b>　${esc(f.place||'―')}</p>
+        <p class="event-meta"><b>スペース</b>　${esc(f.space||'―')}</p>
+        ${f.note?`<p class="event-note">${esc(f.note)}</p>`:''}
+        <div class="item-ctrls edit-only">
+          <button class="icon-btn" data-edit="event" data-id="${f.id}">編集</button>
+          <button class="icon-btn danger" data-del="event" data-id="${f.id}">削除</button>
+        </div>
+      </div>
+    </div>`;
+
+    if(up.length>1){
+      html += `<div class="event-grid">`;
+      up.slice(1).forEach(e=>{
+        html += `<div class="event-card">
+          <div class="cdate">${esc(fmtShort(e.date))}</div>
+          <h4>${esc(e.name)}</h4>
+          <p class="m">${esc(e.place||'―')}</p>
+          <p class="m">スペース：${esc(e.space||'―')}</p>
+          ${e.note?`<p class="m" style="color:var(--fuji-deep)">${esc(e.note)}</p>`:''}
+          <div class="item-ctrls edit-only">
+            <button class="icon-btn" data-edit="event" data-id="${e.id}">編集</button>
+            <button class="icon-btn danger" data-del="event" data-id="${e.id}">削除</button>
+          </div>
+        </div>`;
+      });
+      html += `</div>`;
+    }
+  } else {
+    html = `<p style="color:var(--ink-soft)">現在、参加予定を準備中です。決まり次第こちらに掲載します。</p>`;
+  }
+  wrapU.innerHTML = html;
+
+  let ph="";
+  if(past.length){
+    ph = `<div class="past-head"><span>これまでの参加</span><span class="line"></span></div><ul class="past-list">`;
+    past.forEach(e=>{
+      ph += `<li>
+        <span class="pd">${esc(fmtShort(e.date))}</span>
+        <span class="pn">${esc(e.name)}<span class="edit-only item-ctrls" style="display:inline-flex;margin:0 0 0 10px">
+            <button class="icon-btn" data-edit="event" data-id="${e.id}">編集</button>
+            <button class="icon-btn danger" data-del="event" data-id="${e.id}">削除</button>
+          </span></span>
+        <span class="pp">${esc(e.place||'')}${e.space?' ／ '+esc(e.space):''}</span>
+      </li>`;
+    });
+    ph += `</ul>`;
+  }
+  wrapP.innerHTML = ph;
+}
+
+function renderWorks(){
+  const grid=document.getElementById("works-grid");
+  if(!state.works.length){ grid.innerHTML=`<p style="color:var(--ink-soft)">頒布物を準備中です。</p>`; return; }
+  grid.innerHTML = state.works.map(w=>{
+    const first = (w.title||"？").trim().charAt(0);
+    const cover = w.cover
+      ? `<img src="${esc(w.cover)}" alt="${esc(w.title)} 表紙">`
+      : `<div class="cover-ph"><span>${esc(first)}</span></div>`;
+    return `<article class="work">
+      <div class="cover">${cover}</div>
+      <div class="body">
+        <h3>${esc(w.title)}</h3>
+        <p class="summary">${esc(w.summary)}</p>
+        <div class="item-ctrls edit-only">
+          <button class="icon-btn" data-edit="work" data-id="${w.id}">編集</button>
+          <button class="icon-btn danger" data-del="work" data-id="${w.id}">削除</button>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function renderNews(){
+  const list=document.getElementById("news-list");
+  const items=[...state.news].sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  if(!items.length){ list.innerHTML=`<li style="color:var(--ink-soft)">お知らせはまだありません。</li>`; return; }
+  list.innerHTML = items.map(n=>`
+    <li class="news-item">
+      <time>${esc(fmtNews(n.date))}</time>
+      <div class="txt">${esc(n.body)}</div>
+      <div class="ctrls item-ctrls edit-only">
+        <button class="icon-btn" data-edit="news" data-id="${n.id}">編集</button>
+        <button class="icon-btn danger" data-del="news" data-id="${n.id}">削除</button>
+      </div>
+    </li>`).join("");
+}
+
+function renderProfile(){
+  const p=state.profile;
+  document.getElementById("pf-name").textContent=p.name||"はる";
+  const handle=(p.handle||"H4ru_ycy").replace(/^@/,"");
+  const url="https://x.com/"+handle;
+  document.getElementById("pf-handle").textContent="@"+handle;
+  document.getElementById("pf-handle").href=url;
+  document.getElementById("pf-link").href=url;
+  document.getElementById("pf-bio").textContent=p.bio||"";
+  const av=document.getElementById("pf-avatar");
+  av.innerHTML = p.avatar
+    ? `<img src="${esc(p.avatar)}" alt="${esc(p.name)}">`
+    : `<div class="ph"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5Z"/></svg></div>`;
+}
+
+/* ============================================================
+   編集モード
+   ============================================================ */
+let editing=false;
+const body=document.body;
+
+/* ---- クリック委譲：追加・編集・削除 ---- */
+document.addEventListener("click",(e)=>{
+  const add=e.target.closest("[data-add]");
+  const ed=e.target.closest("[data-edit]");
+  const del=e.target.closest("[data-del]");
+  if(add) openForm(add.dataset.add, null);
+  if(ed)  openForm(ed.dataset.edit, ed.dataset.id||null);
+  if(del) doDelete(del.dataset.del, del.dataset.id);
+});
+
+function doDelete(type,id){
+  const labels={event:"このイベント",work:"この頒布物",news:"このお知らせ"};
+  confirmModal((labels[type]||"この項目")+"を削除しますか？", ()=>{
+    const key=type==="news"?"news":type+"s";
+    state[key]=state[key].filter(x=>x.id!==id);
+    save(); render();
+  });
+}
+
+/* ---- モーダル・フォーム ---- */
+const back=document.getElementById("modal-back");
+const modal=document.getElementById("modal");
+function closeModal(){ back.classList.remove("open"); modal.innerHTML=""; }
+back.addEventListener("click",e=>{ if(e.target===back) closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeModal(); });
+
+/* ---- 画面内ダイアログ（prompt/alert/confirmの代わり：プレビューでも動く） ---- */
+function dialog(html){ modal.innerHTML=html; back.classList.add("open"); }
+function notify(msg){
+  dialog(`<h3>お知らせ</h3><p class="hint" style="white-space:pre-wrap">${esc(msg)}</p>
+    <div class="modal-actions"><button class="btn btn-primary" data-x="ok">OK</button></div>`);
+  modal.querySelector('[data-x="ok"]').onclick=closeModal;
+}
+function confirmModal(msg,onYes){
+  dialog(`<h3>確認</h3><p class="hint" style="white-space:pre-wrap">${esc(msg)}</p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-x="no">キャンセル</button>
+      <button class="btn btn-primary" data-x="yes">OK</button>
+    </div>`);
+  modal.querySelector('[data-x="no"]').onclick=closeModal;
+  modal.querySelector('[data-x="yes"]').onclick=()=>{ closeModal(); onYes(); };
+}
+function openPasscode(){ enterEdit(); }
+function enterEdit(){ editing=true; body.classList.add("is-editing"); }
+function exitEdit(){ editing=false; body.classList.remove("is-editing"); }
+
+function openForm(type,id){
+  if(type==="event") return formEvent(id);
+  if(type==="work")  return formWork(id);
+  if(type==="news")  return formNews(id);
+  if(type==="profile") return formProfile();
+}
+
+function shell(title,hint,inner,onsave){
+  modal.innerHTML=`<h3>${title}</h3><p class="hint">${hint}</p>${inner}
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-x="cancel">キャンセル</button>
+      <button class="btn btn-primary" data-x="save">保存</button>
+    </div>`;
+  back.classList.add("open");
+  modal.querySelector('[data-x="cancel"]').onclick=closeModal;
+  modal.querySelector('[data-x="save"]').onclick=()=>{ if(onsave()!==false){ save(); render(); closeModal(); } };
+}
+const val=id=>modal.querySelector("#"+id).value.trim();
+function formErr(msg){
+  let e=modal.querySelector(".form-err");
+  if(!e){ e=document.createElement("p"); e.className="form-err";
+    e.style.cssText="color:#c25e7d;font-size:.82rem;font-weight:700;margin:0 0 12px";
+    modal.querySelector("h3").after(e); }
+  e.textContent=msg;
+}
+
+function formEvent(id){
+  const ev = id ? state.events.find(x=>x.id===id) : {};
+  shell(id?"イベントを編集":"イベントを追加",
+    "日付を過ぎたものは自動で「これまでの参加」に移ります。",
+    `<div class="field"><label>日付</label><input type="date" id="f-date" value="${esc(ev.date||"")}"><div class="sub">空欄にすると「日程未定」として参加予定に表示されます。</div></div>
+     <div class="field"><label>イベント名</label><input id="f-name" value="${esc(ev.name||"")}" placeholder="例：コミックマーケット106"></div>
+     <div class="field"><label>会場</label><input id="f-place" value="${esc(ev.place||"")}" placeholder="例：東京ビッグサイト"></div>
+     <div class="field"><label>スペース（配置）</label><input id="f-space" value="${esc(ev.space||"")}" placeholder="例：東ラ-01a"></div>
+     <div class="field"><label>ひとこと（任意）</label><input id="f-note" value="${esc(ev.note||"")}" placeholder="例：新刊あります"></div>`,
+    ()=>{
+      const name=val("f-name"); if(!name){ formErr("イベント名を入力してください。"); return false; }
+      const data={date:val("f-date"),name,place:val("f-place"),space:val("f-space"),note:val("f-note")};
+      if(id){ Object.assign(ev,data); } else { state.events.push({id:uid(),...data}); }
+    });
+}
+
+function formWork(id){
+  const w = id ? state.works.find(x=>x.id===id) : {};
+  shell(id?"頒布物を編集":"頒布物を追加",
+    "タイトル・表紙・あらすじを登録できます。",
+    `<div class="field"><label>タイトル</label><input id="f-title" value="${esc(w.title||"")}" placeholder="小説のタイトル"></div>
+     <div class="field"><label>あらすじ</label><textarea id="f-summary" placeholder="作品のあらすじ">${esc(w.summary||"")}</textarea></div>
+     <div class="field"><label>表紙画像</label>
+        <input id="f-cover" value="${esc(w.cover||"")}" placeholder="画像URLを貼り付け">
+        <input type="file" accept="image/*" id="f-coverfile" style="margin-top:8px">
+        <div class="sub">「選択」はブラウザで開いた場合や公開後のサイトで使えます（このプレビューでは反応しないことがあります）。URLを貼れば、この画面でも設定できます。</div>
+        <img class="thumb-prev" id="cover-prev" alt="" style="${w.cover?'':'display:none'}" src="${esc(w.cover||"")}">
+     </div>`,
+    ()=>{
+      const title=val("f-title"); if(!title){ formErr("タイトルを入力してください。"); return false; }
+      const data={title,summary:val("f-summary"),cover:val("f-cover")};
+      if(id){ Object.assign(w,data); } else { state.works.push({id:uid(),...data}); }
+    });
+  hookImage("f-coverfile","f-cover","cover-prev");
+}
+
+function formNews(id){
+  const n = id ? state.news.find(x=>x.id===id) : {};
+  const today=new Date().toISOString().slice(0,10);
+  shell(id?"お知らせを編集":"お知らせを追加","自由に入力できます。保存するとすぐ反映されます。",
+    `<div class="field"><label>日付</label><input type="date" id="f-ndate" value="${esc(n.date||today)}"></div>
+     <div class="field"><label>本文</label><textarea id="f-body" placeholder="お知らせの内容">${esc(n.body||"")}</textarea></div>`,
+    ()=>{
+      const b=val("f-body"); if(!b){ formErr("本文を入力してください。"); return false; }
+      const data={date:val("f-ndate"),body:b};
+      if(id){ Object.assign(n,data); } else { state.news.push({id:uid(),...data}); }
+    });
+}
+
+function formProfile(){
+  const p=state.profile;
+  shell("プロフィールを編集","個人アカウントの表示を変更できます。",
+    `<div class="field"><label>お名前</label><input id="f-pname" value="${esc(p.name||"")}"></div>
+     <div class="field"><label>Xのユーザー名（@なし）</label><input id="f-phandle" value="${esc(p.handle||"H4ru_ycy")}"></div>
+     <div class="field"><label>ひとこと・プロフィール</label><textarea id="f-pbio">${esc(p.bio||"")}</textarea></div>
+     <div class="field"><label>プロフィール写真</label>
+        <input id="f-pavatar" value="${esc(p.avatar||"")}" placeholder="画像URLを貼り付け">
+        <input type="file" accept="image/*" id="f-pfile" style="margin-top:8px">
+        <div class="sub">「選択」はブラウザで開いた場合や公開後のサイトで使えます（このプレビューでは反応しないことがあります）。URLを貼れば、この画面でも設定できます。</div>
+        <img class="thumb-prev" id="av-prev" style="border-radius:50%;width:74px;height:74px;${p.avatar?'':'display:none'}" src="${esc(p.avatar||"")}" alt="">
+     </div>`,
+    ()=>{
+      state.profile={ name:val("f-pname")||"はる", handle:val("f-phandle").replace(/^@/,"")||"H4ru_ycy",
+        bio:val("f-pbio"), avatar:val("f-pavatar") };
+    });
+  hookImage("f-pfile","f-pavatar","av-prev");
+}
+
+/* 画像：URL入力 or ファイル選択 → プレビュー＆保存 */
+function hookImage(fileId,textId,prevId){
+  const f=modal.querySelector("#"+fileId);
+  const t=modal.querySelector("#"+textId);
+  const pv=modal.querySelector("#"+prevId);
+  // URLを入力/貼り付け → プレビュー更新（この画面でも使えます）
+  if(t){
+    t.addEventListener("input",()=>{
+      const u=t.value.trim();
+      if(u){ pv.src=u; pv.style.display="block"; }
+      else{ pv.removeAttribute("src"); pv.style.display="none"; }
+    });
+  }
+  // ファイルを選択 → dataURLに変換（ブラウザ／公開後で動作）
+  if(f){
+    f.addEventListener("change",()=>{
+      const file=f.files[0]; if(!file) return;
+      if(file.size>1.6*1024*1024){ formErr("画像が大きめです（1.5MB以下を推奨）。URLでの指定もできます。"); }
+      const r=new FileReader();
+      r.onload=()=>{ t.value=r.result; pv.src=r.result; pv.style.display="block"; };
+      r.readAsDataURL(file);
+    });
+  }
+}
+
+/* ============================================================
+   公開用に書き出し ／ この端末の編集をリセット
+   ============================================================ */
+function exportHTML(){
+  const doc = TEMPLATE.cloneNode(true);
+  const dataEl = doc.querySelector("#site-data");
+  // < を \u003c に変換し、JSON内の記号でファイルが壊れないようにする（読み込み時に元へ戻ります）
+  dataEl.textContent = JSON.stringify(state).replace(/</g,"\\u003c");
+  const html = "<!DOCTYPE html>\n" + doc.outerHTML;
+  showExport(html);
+}
+function showExport(html){
+  dialog(`<h3>公開用に書き出し</h3>
+    <p class="hint">「ダウンロード」で <b>index.html</b> を保存し、GitHubにアップロードし直すと公開ページが更新されます。<br>このプレビュー画面では保存できないことがあります。その場合は「内容をコピー」して、テキストとして index.html に貼り付けてください。</p>
+    <div class="modal-actions" style="flex-wrap:wrap;gap:8px">
+      <button class="btn btn-ghost" data-x="copy">内容をコピー</button>
+      <button class="btn btn-primary" data-x="dl">ダウンロード</button>
+      <button class="btn btn-ghost" data-x="close">閉じる</button>
+    </div>`);
+  modal.querySelector('[data-x="close"]').onclick=closeModal;
+  modal.querySelector('[data-x="dl"]').onclick=()=>{
+    try{
+      const blob=new Blob([html],{type:"text/html;charset=utf-8"});
+      const a=document.createElement("a");
+      a.href=URL.createObjectURL(blob); a.download="index.html";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+      notify("「index.html」を書き出しました。\nこのファイルをホスティングにアップロードし直すと、公開ページが更新されます。");
+    }catch(e){ notify("この画面では保存できませんでした。「内容をコピー」をお使いください。"); }
+  };
+  modal.querySelector('[data-x="copy"]').onclick=async ()=>{
+    try{
+      await navigator.clipboard.writeText(html);
+      notify("コピーしました。テキストエディタに貼り付けて index.html として保存してください。");
+    }catch(e){
+      dialog(`<h3>内容をコピー</h3><p class="hint">下の枠内をすべて選択してコピーし、index.html として保存してください。</p>
+        <textarea readonly style="width:100%;min-height:220px;font-size:.7rem" id="ex-ta"></textarea>
+        <div class="modal-actions"><button class="btn btn-primary" data-x="c2">閉じる</button></div>`);
+      const ta=modal.querySelector("#ex-ta"); ta.value=html; ta.focus(); ta.select();
+      modal.querySelector('[data-x="c2"]').onclick=closeModal;
+    }
+  };
+}
+function resetLocal(){
+  confirmModal("この端末で編集した内容を消して、公開されているデータに戻します。よろしいですか？", ()=>{
+    try{ localStorage.removeItem(STORE_KEY); }catch(e){}
+    delete mem[STORE_KEY];
+    state = readEmbedded() || structuredClone(seed);
+    render();
+    notify("公開データに戻しました。");
+  });
+}
+document.getElementById("btn-export").addEventListener("click", exportHTML);
+document.getElementById("btn-reset").addEventListener("click", resetLocal);
+document.getElementById("btn-settings").addEventListener("click", formSettings);
+document.getElementById("btn-end").addEventListener("click", exitEdit);
+
+/* ============================================================
+   ハンバーガーメニュー
+   ============================================================ */
+const hb=document.getElementById("hamburger");
+const panel=document.getElementById("menu-panel");
+const scrim=document.getElementById("menu-scrim");
+function openMenu(){ hb.classList.add("open"); panel.classList.add("open"); scrim.classList.add("open"); hb.setAttribute("aria-expanded","true"); }
+function closeMenu(){ hb.classList.remove("open"); panel.classList.remove("open"); scrim.classList.remove("open"); hb.setAttribute("aria-expanded","false"); }
+hb.addEventListener("click", ()=> hb.classList.contains("open") ? closeMenu() : openMenu());
+scrim.addEventListener("click", closeMenu);
+panel.addEventListener("click",(e)=>{
+  const it=e.target.closest("[data-menu]"); if(!it) return;
+  const m=it.dataset.menu; closeMenu();
+  if(m==="email") openEmailReg();
+  else if(m==="works") document.getElementById("works").scrollIntoView({behavior:"smooth"});
+  else if(m==="profile") document.getElementById("social").scrollIntoView({behavior:"smooth"});
+  else if(m==="contact") openContact();
+});
+
+/* ---- 空欄メニューを10秒長押し → 編集モード（管理メニュー表示） ---- */
+const secret=document.getElementById("secret-item");
+let holdTimer=null;
+function holdStart(){
+  secret.classList.add("pressing");
+  holdTimer=setTimeout(()=>{
+    secret.classList.remove("pressing");
+    closeMenu(); enterEdit();
+    notify("編集モードに入りました。右下のメニューから、追加・書き出し・設定ができます。");
+  }, 10000);
+}
+function holdEnd(){ clearTimeout(holdTimer); secret.classList.remove("pressing"); }
+secret.addEventListener("touchstart", holdStart, {passive:true});
+secret.addEventListener("touchend", holdEnd);
+secret.addEventListener("touchcancel", holdEnd);
+secret.addEventListener("mousedown", holdStart);
+secret.addEventListener("mouseup", holdEnd);
+secret.addEventListener("mouseleave", holdEnd);
+secret.addEventListener("contextmenu", e=>e.preventDefault());
+
+/* ============================================================
+   メール登録 ／ お問い合わせ ／ 設定
+   ============================================================ */
+function openEmailReg(){
+  dialog(`<h3>お知らせメール登録</h3>
+    <p class="hint">メールアドレスを登録すると、新刊やイベントのお知らせをお送りします。</p>
+    <div class="field"><input type="email" id="f-email" placeholder="you@example.com" autocomplete="email"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-x="cancel">閉じる</button>
+      <button class="btn btn-primary" data-x="ok">登録する</button>
+    </div>`);
+  modal.querySelector('[data-x="cancel"]').onclick=closeModal;
+  modal.querySelector('[data-x="ok"]').onclick=()=>{
+    const email=modal.querySelector("#f-email").value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ formErr("メールアドレスの形式をご確認ください。"); return; }
+    submitEmail(email);
+  };
+}
+async function submitEmail(email){
+  const ep=(state.newsletter||"").trim();
+  if(!ep){ notify("メール登録は現在準備中です。\nお手数ですが X（@Harutsumugi_cpk）よりご連絡ください。"); return; }
+  notify("送信しています…");
+  try{
+    const r=await fetch(ep,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({email})});
+    if(r.ok) notify("登録ありがとうございます。\nお知らせをお送りしますので、お待ちください。");
+    else notify("送信できませんでした。時間をおいて再度お試しください。");
+  }catch(e){ notify("送信できませんでした。通信環境をご確認のうえ、再度お試しください。"); }
+}
+function openContact(){
+  const mail=(state.contactEmail||"").trim();
+  dialog(`<h3>お問い合わせ</h3>
+    <p class="hint">ご連絡は下記からお願いします。</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <a class="btn btn-primary" href="https://x.com/Harutsumugi_cpk" target="_blank" rel="noopener">X（@Harutsumugi_cpk）でDM</a>
+      ${mail?`<a class="btn btn-ghost" href="mailto:${esc(mail)}">メールで問い合わせる</a>`:""}
+    </div>
+    <div class="modal-actions"><button class="btn btn-ghost" data-x="close">閉じる</button></div>`);
+  modal.querySelector('[data-x="close"]').onclick=closeModal;
+}
+function formSettings(){
+  dialog(`<h3>設定</h3><p class="hint">管理用の設定です。保存後に「公開用に書き出し」で反映されます。</p>
+    <div class="field"><label>お問い合わせ用メール（任意）</label>
+      <input id="s-mail" value="${esc(state.contactEmail||"")}" placeholder="contact@example.com"></div>
+    <div class="field"><label>メール登録の送信先URL（任意）</label>
+      <input id="s-news" value="${esc(state.newsletter||"")}" placeholder="https://formspree.io/f/xxxx">
+      <div class="sub">Formspree等のフォームURL。空欄だと登録フォームは「準備中」と表示されます。</div></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-x="cancel">キャンセル</button>
+      <button class="btn btn-primary" data-x="save">保存</button>
+    </div>`);
+  modal.querySelector('[data-x="cancel"]').onclick=closeModal;
+  modal.querySelector('[data-x="save"]').onclick=()=>{
+    state.contactEmail=modal.querySelector("#s-mail").value.trim();
+    state.newsletter=modal.querySelector("#s-news").value.trim();
+    save(); closeModal();
+    notify("設定を保存しました。\n「公開用に書き出し」してアップロードすると、公開ページに反映されます。");
+  };
+}
+
+/* ============================================================
+   X タイムライン読み込み＋フォールバック
+   ============================================================ */
+(function loadX(){
+  const s=document.createElement("script");
+  s.src="https://platform.twitter.com/widgets.js"; s.async=true; s.charset="utf-8";
+  document.body.appendChild(s);
+  setTimeout(()=>{
+    const box=document.getElementById("x-embed");
+    if(!box.querySelector("iframe")){ document.getElementById("x-fallback").style.display="block"; }
+  }, 4000);
+})();
+
+/* ---- 他タブでの編集をリアルタイム反映 ---- */
+window.addEventListener("storage",e=>{ if(e.key===STORE_KEY){ state=load(); render(); } });
+
+/* ---- 起動 ---- */
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
