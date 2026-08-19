@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja"><head>
+<html lang="ja">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>二次創作サークルはるつむぎ</title>
 <meta name="description" content="二次創作サークル はるつむぎ の公式サイト。イベント参加予定・頒布物・お知らせ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --washi:#FBF7F3;      /* 生成りの紙 */
@@ -119,6 +120,12 @@
   .event-meta{color:var(--ink-soft);font-size:.9rem;margin:2px 0}
   .event-meta b{color:var(--ink);font-weight:700}
   .event-note{margin-top:10px;font-size:.9rem;color:var(--fuji-deep)}
+  .event-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .event-links a{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:700;
+    color:var(--fuji-deep);text-decoration:none;border:1px solid var(--thread);border-radius:999px;
+    padding:6px 13px;background:#fff}
+  .event-links a:hover{border-color:var(--fuji);background:rgba(140,122,176,.06)}
+  .past-ctrls{gap:6px;margin-left:10px}
 
   .event-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:20px}
   .event-card{background:var(--white);border:1px solid var(--thread);border-radius:14px;padding:18px 18px 16px;position:relative}
@@ -276,9 +283,9 @@
 <!-- ============ ヘッダー / ヒーロー ============ -->
 <header class="hero" id="top">
   <svg class="hero-thread" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M-20,140 C220,60 380,240 620,150 C860,60 1000,220 1240,140" stroke="#8C7AB0"></path>
-    <path d="M-20,250 C260,190 420,330 640,250 C880,170 1040,320 1240,250" stroke="#E39FB6"></path>
-    <path d="M-20,370 C240,300 460,430 660,360 C900,290 1060,420 1240,360" stroke="#9BB58A"></path>
+    <path d="M-20,140 C220,60 380,240 620,150 C860,60 1000,220 1240,140" stroke="#8C7AB0"/>
+    <path d="M-20,250 C260,190 420,330 640,250 C880,170 1040,320 1240,250" stroke="#E39FB6"/>
+    <path d="M-20,370 C240,300 460,430 660,360 C900,290 1060,420 1240,360" stroke="#9BB58A"/>
   </svg>
 
   <nav>
@@ -304,7 +311,7 @@
 
 <!-- ============ イベント ============ -->
 <section id="events">
-  <div class="wrap" data-editzone="">
+  <div class="wrap" data-editzone>
     <div class="sec-head">
       <p class="eyebrow">Events</p>
       <h2>イベント参加予定</h2>
@@ -320,7 +327,7 @@
 
 <!-- ============ 頒布物 ============ -->
 <section id="works">
-  <div class="wrap" data-editzone="">
+  <div class="wrap" data-editzone>
     <div class="sec-head">
       <p class="eyebrow">Works</p>
       <h2>頒布物</h2>
@@ -335,7 +342,7 @@
 
 <!-- ============ お知らせ ============ -->
 <section id="news">
-  <div class="wrap" data-editzone="">
+  <div class="wrap" data-editzone>
     <div class="sec-head">
       <p class="eyebrow">News</p>
       <h2>サークルからのお知らせ</h2>
@@ -358,14 +365,15 @@
     </div>
     <div class="social-grid">
       <div class="x-embed" id="x-embed">
-        <a class="twitter-timeline" data-height="560" data-theme="light" data-chrome="noheader nofooter transparent" href="https://twitter.com/Harutsumugi_cpk?ref_src=twsrc%5Etfw">Posts by @Harutsumugi_cpk</a>
+        <a class="twitter-timeline" data-height="560" data-theme="light" data-chrome="noheader nofooter transparent"
+           href="https://twitter.com/Harutsumugi_cpk?ref_src=twsrc%5Etfw">Posts by @Harutsumugi_cpk</a>
         <div class="x-fallback" id="x-fallback" style="display:none">
           <p>タイムラインを読み込めませんでした。<br>下のボタンからXでご覧ください。</p>
           <a class="btn btn-primary" href="https://x.com/Harutsumugi_cpk" target="_blank" rel="noopener">@Harutsumugi_cpk を開く</a>
         </div>
       </div>
 
-      <div class="profile-card" data-editzone="">
+      <div class="profile-card" data-editzone>
         <div class="avatar" id="pf-avatar"></div>
         <h3 id="pf-name">はる</h3>
         <a class="handle" id="pf-handle" href="https://x.com/H4ru_ycy" target="_blank" rel="noopener">@H4ru_ycy</a>
@@ -416,7 +424,7 @@
 </div>
 
 <!-- 公開データ（「公開用に書き出し」でここへ自動的に埋め込まれます。手で書き換えないでください） -->
-<script type="application/json" id="site-data">{"passcode":"harutsumugi","contactEmail":"h4ru.kyi2943@gmail.com","newsletter":"https://formspree.io/f/xgawpbap","profile":{"name":"はる","handle":"H4ru_ycy","bio":"はるつむぎ の書き手。二次創作で小説を書いています。","avatar":""},"events":[{"id":"e1","date":"2026-08-30","name":"コミックマーケット106","place":"東京ビッグサイト","space":"東ラ-01a","note":"新刊を頒布予定です。"},{"id":"e2","date":"2026-11-23","name":"文学フリマ東京","place":"東京流通センター","space":"配置未定","note":""},{"id":"e3","date":"2026-05-05","name":"SUPER COMIC CITY","place":"東京ビッグサイト","space":"A-15b","note":""},{"id":"e4","date":"2025-12-30","name":"コミックマーケット105","place":"東京ビッグサイト","space":"西あ-20a","note":""}],"works":[{"id":"w1","title":"夜明けを紡ぐ","cover":"","summary":"すれ違い続けた二人が、ひとつの約束をきっかけに距離を縮めていく。長い夜の果てに交わす、はじめての言葉。"},{"id":"w2","title":"春のあわいに","cover":"","summary":"桜が散るころ、彼は小さな嘘をついた。その嘘がほどけるまでの、ゆっくりとした季節の物語。"}],"news":[{"id":"n1","date":"2026-08-18","body":"ホームページを開設しました。これからよろしくお願いします。"},{"id":"n2","date":"2026-08-10","body":"夏の新刊、制作中です。続報はXでお知らせします。"}]}</script>
+<script type="application/json" id="site-data">__SITE_DATA__</script>
 
 <script>
 /* ============================================================
@@ -514,6 +522,14 @@ function fmtNews(s){
    ============================================================ */
 function render(){ renderEvents(); renderWorks(); renderNews(); renderProfile(); }
 
+function normUrl(u){ u=(u||"").trim(); if(!u) return ""; return /^https?:\/\//i.test(u)?u:"https://"+u.replace(/^\/+/,""); }
+function normX(u){ u=(u||"").trim(); if(!u) return ""; if(/^https?:\/\//i.test(u)) return u; u=u.replace(/^@/,""); return (!u.includes("/")&&!u.includes("."))?"https://x.com/"+u:"https://"+u; }
+function eventLinks(e){
+  const parts=[];
+  if(e.url) parts.push(`<a href="${esc(normUrl(e.url))}" target="_blank" rel="noopener">イベントサイト ↗</a>`);
+  if(e.x)   parts.push(`<a href="${esc(normX(e.x))}" target="_blank" rel="noopener">X ↗</a>`);
+  return parts.length?`<div class="event-links">${parts.join("")}</div>`:"";
+}
 function renderEvents(){
   const up = state.events.filter(isUpcoming).sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"));
   const past = state.events.filter(e=>!isUpcoming(e)).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
@@ -535,6 +551,7 @@ function renderEvents(){
         <p class="event-meta"><b>会場</b>　${esc(f.place||'―')}</p>
         <p class="event-meta"><b>スペース</b>　${esc(f.space||'―')}</p>
         ${f.note?`<p class="event-note">${esc(f.note)}</p>`:''}
+        ${eventLinks(f)}
         <div class="item-ctrls edit-only">
           <button class="icon-btn" data-edit="event" data-id="${f.id}">編集</button>
           <button class="icon-btn danger" data-del="event" data-id="${f.id}">削除</button>
@@ -551,6 +568,7 @@ function renderEvents(){
           <p class="m">${esc(e.place||'―')}</p>
           <p class="m">スペース：${esc(e.space||'―')}</p>
           ${e.note?`<p class="m" style="color:var(--fuji-deep)">${esc(e.note)}</p>`:''}
+          ${eventLinks(e)}
           <div class="item-ctrls edit-only">
             <button class="icon-btn" data-edit="event" data-id="${e.id}">編集</button>
             <button class="icon-btn danger" data-del="event" data-id="${e.id}">削除</button>
@@ -570,7 +588,7 @@ function renderEvents(){
     past.forEach(e=>{
       ph += `<li>
         <span class="pd">${esc(fmtShort(e.date))}</span>
-        <span class="pn">${esc(e.name)}<span class="edit-only item-ctrls" style="display:inline-flex;margin:0 0 0 10px">
+        <span class="pn">${esc(e.name)}<span class="edit-only past-ctrls">
             <button class="icon-btn" data-edit="event" data-id="${e.id}">編集</button>
             <button class="icon-btn danger" data-del="event" data-id="${e.id}">削除</button>
           </span></span>
@@ -720,10 +738,12 @@ function formEvent(id){
      <div class="field"><label>イベント名</label><input id="f-name" value="${esc(ev.name||"")}" placeholder="例：コミックマーケット106"></div>
      <div class="field"><label>会場</label><input id="f-place" value="${esc(ev.place||"")}" placeholder="例：東京ビッグサイト"></div>
      <div class="field"><label>スペース（配置）</label><input id="f-space" value="${esc(ev.space||"")}" placeholder="例：東ラ-01a"></div>
-     <div class="field"><label>ひとこと（任意）</label><input id="f-note" value="${esc(ev.note||"")}" placeholder="例：新刊あります"></div>`,
+     <div class="field"><label>ひとこと（任意）</label><input id="f-note" value="${esc(ev.note||"")}" placeholder="例：新刊あります"></div>
+     <div class="field"><label>イベントサイトのURL（任意）</label><input id="f-url" value="${esc(ev.url||"")}" placeholder="例：https://www.comiket.co.jp/"></div>
+     <div class="field"><label>X（旧Twitter）のリンク（任意）</label><input id="f-x" value="${esc(ev.x||"")}" placeholder="例：https://x.com/… または @アカウント名"></div>`,
     ()=>{
       const name=val("f-name"); if(!name){ formErr("イベント名を入力してください。"); return false; }
-      const data={date:val("f-date"),name,place:val("f-place"),space:val("f-space"),note:val("f-note")};
+      const data={date:val("f-date"),name,place:val("f-place"),space:val("f-space"),note:val("f-note"),url:val("f-url"),x:val("f-x")};
       if(id){ Object.assign(ev,data); } else { state.events.push({id:uid(),...data}); }
     });
 }
@@ -818,13 +838,15 @@ function exportHTML(){
 }
 function showExport(html){
   dialog(`<h3>公開用に書き出し</h3>
-    <p class="hint">「ダウンロード」で <b>index.html</b> を保存し、GitHubにアップロードし直すと公開ページが更新されます。<br>このプレビュー画面では保存できないことがあります。その場合は「内容をコピー」して、テキストとして index.html に貼り付けてください。</p>
+    <p class="hint"><b>「共有して保存」</b>を押すと、スマホの共有メニューから <b>Googleドライブ</b> などに直接保存できます。<br>PCなどでは「ダウンロード」をお使いください。保存した index.html をGitHubにアップロードし直すと公開ページが更新されます。</p>
     <div class="modal-actions" style="flex-wrap:wrap;gap:8px">
       <button class="btn btn-ghost" data-x="copy">内容をコピー</button>
-      <button class="btn btn-primary" data-x="dl">ダウンロード</button>
+      <button class="btn btn-ghost" data-x="dl">ダウンロード</button>
+      <button class="btn btn-primary" data-x="share">共有して保存</button>
       <button class="btn btn-ghost" data-x="close">閉じる</button>
     </div>`);
   modal.querySelector('[data-x="close"]').onclick=closeModal;
+  modal.querySelector('[data-x="share"]').onclick=()=>shareFile(html);
   modal.querySelector('[data-x="dl"]').onclick=()=>{
     try{
       const blob=new Blob([html],{type:"text/html;charset=utf-8"});
@@ -833,7 +855,7 @@ function showExport(html){
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(()=>URL.revokeObjectURL(a.href),1000);
       notify("「index.html」を書き出しました。\nこのファイルをホスティングにアップロードし直すと、公開ページが更新されます。");
-    }catch(e){ notify("この画面では保存できませんでした。「内容をコピー」をお使いください。"); }
+    }catch(e){ notify("この画面では保存できませんでした。「共有して保存」または「内容をコピー」をお使いください。"); }
   };
   modal.querySelector('[data-x="copy"]').onclick=async ()=>{
     try{
@@ -847,6 +869,19 @@ function showExport(html){
       modal.querySelector('[data-x="c2"]').onclick=closeModal;
     }
   };
+}
+async function shareFile(html){
+  try{
+    const file=new File([html], "index.html", {type:"text/html"});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({files:[file], title:"はるつむぎ index.html"});
+    }else{
+      notify("この端末は共有に対応していないようです。「ダウンロード」で保存してください。");
+    }
+  }catch(e){
+    if(e && e.name==="AbortError") return;   // ユーザーが共有をキャンセル
+    notify("共有できませんでした。「ダウンロード」で保存してください。");
+  }
 }
 function resetLocal(){
   confirmModal("この端末で編集した内容を消して、公開されているデータに戻します。よろしいですか？", ()=>{
@@ -979,4 +1014,6 @@ window.addEventListener("storage",e=>{ if(e.key===STORE_KEY){ state=load(); rend
 /* ---- 起動 ---- */
 document.getElementById("year").textContent=new Date().getFullYear();
 render();
-</script></body></html>
+</script>
+</body>
+</html>
